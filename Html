@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head><title>House Price Predictor</title>
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef1f5;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 600px;
+      background: white;
+
+      padding: 20px;
+      margin: 0 auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    #output {
+      font-weight: bold;
+      margin-top: 20px;
+      text-align: center;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h2>House Price Predictor</h2>
+  Size (sq ft): <input id="size" type="number"><br>
+  Bedrooms: <input id="bedrooms" type="number"><br>
+  <button onclick="predict()">Predict</button>
+  <p id="result"></p>
+
+  <script>
+    function predict() {
+      let size = parseFloat(document.getElementById('size').value);
+      let bedrooms = parseFloat(document.getElementById('bedrooms').value);
+
+      let a = 100, b = 20000, c = 5000;
+      let price = a * size + c * bedrooms + b;
+      document.getElementById('result').innerText = "Predicted Price: $" + price.toFixed(2);
+    }
+  </script>
+</body>
+</html>
